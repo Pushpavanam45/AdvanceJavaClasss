@@ -1,0 +1,32 @@
+package product;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class MainClassBook {
+	public static void main(String[] args) {
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("dev");
+	    EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+	    Book b = new Book();
+	    b.setBook_id("B01");
+	    b.setTitle("Doomsday");
+	    b.setAuthor("Gautham");
+	    b.setCategory("Action");
+	    b.setPrice(20000);
+	    b.setQuantity(50);
+	    b.setDescription(" its about the lasat day of earth");
+	    
+	    et.begin();
+		em.persist(b);
+		et.commit();
+		
+		em.close();
+        emf.close();
+	    
+	}
+
+}

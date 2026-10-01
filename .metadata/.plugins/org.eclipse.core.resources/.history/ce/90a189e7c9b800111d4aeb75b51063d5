@@ -1,0 +1,12 @@
+package product;
+import jakarta.persistence.*;
+
+public class MainClass {
+
+	public static void main(String [] args) {
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("");
+	    EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+	}
+
+}

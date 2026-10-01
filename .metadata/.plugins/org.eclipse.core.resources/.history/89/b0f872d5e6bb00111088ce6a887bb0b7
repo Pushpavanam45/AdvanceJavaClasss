@@ -1,0 +1,19 @@
+package product;
+
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.*;
+
+public class FetchByPhoneNumber {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+		EntityManager em = emf.createEntityManager();
+		
+		Query q = em.createQuery("select e from Employee_db where e.phone = 93485873");
+		
+		//Object o = q.getSingleResult();
+		
+		Employee e = (Employee) q.getSingleResult();
+		System.out.println(e);
+	}
+
+}

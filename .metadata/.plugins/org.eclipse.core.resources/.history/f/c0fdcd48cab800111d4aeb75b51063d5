@@ -1,0 +1,18 @@
+package product;
+import jakarta.persistence.*;
+
+public class MainClass {
+
+	public static void main(String [] args) {
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("");
+	    EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		Employee e = new Employee();
+		e.setEno("Emp01");
+		e.setName("Gautham");
+		e.setGender("male");
+		e.setPhone(9747972332);
+	}
+
+}

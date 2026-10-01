@@ -1,0 +1,32 @@
+package product;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class MainClassBook {
+	public static void main(String[] args) {
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("dev");
+	    EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+	    Book b = new Book();
+	    b.setBook_id("B03");
+	    b.setTitle("Civil war");
+	    b.setAuthor("russo brothers");
+	    b.setCategory("Fantasy");
+	    b.setPrice(5000);
+	    b.setQuantity(10);
+	    b.setDescription(" its about a war between one team");
+	    
+	    et.begin();
+		em.persist(b);
+		et.commit();
+		
+		em.close();
+        emf.close();
+	    
+	}
+
+}

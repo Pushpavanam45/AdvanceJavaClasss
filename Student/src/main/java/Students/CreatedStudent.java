@@ -1,0 +1,28 @@
+package Students;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+public class CreatedStudent {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+	    EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		Student s = new Student();
+		s.setSno("S01");
+		s.setSname("Gautham");
+		s.setRollno(1);
+		s.setDepartment("CSE");
+		s.setAddress("chennai");
+		
+		et.begin();
+		em.persist(s);
+		et.commit();
+		
+		
+	}
+	
+
+}

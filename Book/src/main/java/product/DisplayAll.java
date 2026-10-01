@@ -1,0 +1,21 @@
+package product;
+
+import java.util.List;
+
+import jakarta.persistence.*;
+
+public class DisplayAll {
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+		EntityManager em = emf.createEntityManager();
+		
+		
+		Query q = em.createQuery("select b from Book b ");
+		
+		List<Book> list = q.getResultList();
+		for(Book b : list) {
+			System.out.println(b);
+		}
+	}
+
+}

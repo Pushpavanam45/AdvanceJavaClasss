@@ -1,0 +1,8 @@
+package Students;
+
+
+import jakarta.persistence.*;
+public class Student {
+	
+
+}

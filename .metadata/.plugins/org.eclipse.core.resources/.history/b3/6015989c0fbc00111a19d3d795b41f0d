@@ -1,0 +1,12 @@
+package product;
+import java.util.*;
+import jakarta.persistence.*;
+public class BooksQuantityLess {
+	public static void main(String[] args) {
+		EntityManagerFactory emf  = Persistence.createEntityManagerFactory("dev");
+	    EntityManager em = emf.createEntityManager();
+	    
+	    Query q = em.createQuery("select b from ");
+	}
+
+}

@@ -1,0 +1,9 @@
+package product;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Book {
+	
+
+}

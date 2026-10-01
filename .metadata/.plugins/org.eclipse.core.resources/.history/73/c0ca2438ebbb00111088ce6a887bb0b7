@@ -1,0 +1,7 @@
+package product;
+
+@Entity
+public class Book {
+	
+
+}

@@ -1,0 +1,28 @@
+package product;
+
+
+import jakarta.persistence.*;
+
+public class FetchbyEmpno {
+
+	public static void main(String[] args) {
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("dev");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		Employee e = em.find(Employee.class,"Emp01");
+		
+		if(e != null) {
+			et.begin();
+			em.remove(e);
+			et.commit();
+			
+			System.out.println("data deleted");
+		}else {
+		  System.out.println("Data not found");
+		}
+		
+		System.out.println(e);
+		
+		
+	}
+}

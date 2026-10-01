@@ -1,0 +1,30 @@
+package product;
+import jakarta.persistence.*;
+public class update {
+	public static void main(String[] args) {
+		EntityManagerFactory emp = Persistence.createEntityManagerFactory("dev");
+		EntityManager em = emp.createEntityManager();
+		EntityTransaction et = em.getTransaction();
+		
+		Employee e= em.find(Employee.class, "Emp02");
+		
+		
+		
+		
+		if(e !=null) {
+			e.setEmail("Gautham45sw"
+					+ "@gmail.com");
+			e.setPhone(897987289);
+			et.begin();
+			em.merge(e);
+			et.commit();
+			System.out.println("Data updated");
+			
+			em.close();
+		}else {
+			
+			System.out.println("Data not found !!!");
+		}
+	}
+
+}
